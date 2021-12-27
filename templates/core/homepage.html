@@ -1,0 +1,30 @@
+
+{% extends 'core/base.html' %}
+{% load static %}
+    {% block body %}
+        <div class="container">
+            <div class="form-group d-flex">
+                <input type="text" class="form-control m-1">
+                <button class="btn btn-primary">Search</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row justify-conten-center mt-2">
+                {% for estate in estates%}
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="card m-3" style="width: 100%">
+                            <img src="{{ estate.image.url }}" alt="" class="img-card-top">
+                            <div class="card-body">
+                                <h2 class="card-title">{{ estate.name }}</h2>
+                                <p class="card-text text-truncate">
+                                    {{ estate.description }}
+                                </p>
+                                <a href="{% url 'detail' estate.pk %}" class="card-link">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endblock %}

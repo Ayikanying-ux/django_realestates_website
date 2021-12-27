@@ -1,0 +1,48 @@
+body {
+    font-family: 'Alegreya Sans SC', Arial, sans-serif;
+    font-size: 17pt;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.nav-wrapper{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    background-color: #000;
+    color: #fff;
+    margin-bottom: 10px;
+}
+  .nav-wrapper .nav-bar ul{
+      list-style-type: none;
+      display: flex;
+  }
+  .nav-wrapper .nav-bar ul li{
+    padding-right: 10px;
+  }
+  .nav-wrapper .nav-bar ul li a{
+      text-decoration: none;
+      color: #fff;
+  }
+  .nav-wrapper .nav-bar ul li a:hover{
+    color: rgb(236, 15, 34);
+}
+.agent_details
+{
+    background-color: #000;
+    color: #fff;
+    padding: 5px 0;
+}
+@media(max-width: 640px){
+    .nav-wrapper{
+        display: block;
+        text-align: center;
+    }
+    .nav-wrapper .nav-bar ul{
+        display: inline-flex;
+    
+    }
+}
