@@ -3,7 +3,7 @@
     {% block body %}
         <div class="container">
             <div class="form-group d-flex">
-                <input type="text" class="form-control m-1">
+                <input type="text" class="form-control m-1" placeholder="Search for available house">
                 <button class="btn btn-primary">Search</button>
             </div>
         </div>
@@ -27,12 +27,28 @@
                     {{ estates.description }}
                 </p>
             </div>
-        </div> <br>
+        </div>
 
         <div class="comment-section">  
             <div class="container">
+                <div class="container">
+                    <div class="form-group d-flex">
+                        <input type="text" class="form-control m-1" placeholder="Add Comments">
+                        <button class="btn btn-primary">Comment</button>
+                    </div>
+                </div> <br>
+
                 <h6>Comments</h6>
-                <p>By Jeremiah: The house is perfect, the place is good for people who are eager to live in a cool and indusive environment</p>
+                {% if not estates.comments.all %}
+                    No comments
+                {% else %}
+                    {% for comment in estates.comments.all %}
+                        <p>{{ comment.user }}</p>
+                        <p>{{ comment.comment }}</p>
+                        <p>{{ comment.date_added }}</p>
+                    {% endfor %}
+                    <a href="{% url 'comments' estates.pk %}">View all</a>
+                {% endif %}
             </div>
         </div><br><br>
 

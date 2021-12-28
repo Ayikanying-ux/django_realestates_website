@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 # Create your models here.
 """
@@ -13,6 +13,17 @@ from django.db import models
         -number of bedrooms
         -
 """
+
+class Comment(models.Model):
+    user=models.ForeignKey(User, on_delete=models.CASCADE)
+    house = models.ForeignKey("House", related_name="comments", on_delete=models.DO_NOTHING)
+    comment = models.TextField(max_length=100)
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f"{self.user.username} comments"
+
+
 class Agent(models.Model):
     name=models.CharField(max_length=30)
     contact = models.CharField(max_length=13)

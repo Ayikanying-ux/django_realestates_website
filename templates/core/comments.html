@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+    {% block body %}
+        <div class="comment">
+            <div class="container">
+                <div class="comment-section">
+                    <h1 class="text-center">Comments</h1><br>
+                    {% for comment in estates.comments.all %}
+                        <div class="com1 d-flex justify-content-between">
+                            <div class="comment-section">
+                                <p>{{ comment.user }}</p>
+                                <p>{{ comment.comment }}</p>
+                                <p>{{ comment.date_added }}</p>
+                            </div>
+                            <a href=""><i class="far fa-heart"></i></a>
+                        </div><br>
+                    {% endfor %} 
+                </div>
+            </div>
+        </div>  
+    {% endblock %}

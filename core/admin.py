@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from core.models import Agent, House
+from core.models import Agent, Comment, House
 
 # Register your models here.
 
@@ -11,3 +11,7 @@ class HouseAdmin(admin.ModelAdmin):
 @admin.register(Agent)
 class AgentAdmin(admin.ModelAdmin):
     list_display=('name', 'contact')
+
+@admin.register(Comment)
+class CommentAdim(admin.ModelAdmin):
+    list_display=('user', 'house', 'comment', 'date_added')

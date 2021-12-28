@@ -10,3 +10,10 @@ def detail_page(request, pk):
     estates = House.objects.get(id=pk)
     context = {'estates': estates}
     return render(request, 'core/detail_page.html', context)
+
+def comments(request, pk):
+    estates = House.objects.get(id=pk)
+    context={
+        'estates': estates
+    }
+    return render(request, 'core/comments.html', context)
