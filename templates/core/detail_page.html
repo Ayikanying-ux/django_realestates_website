@@ -32,9 +32,12 @@
         <div class="comment-section">  
             <div class="container">
                 <div class="container">
-                    <div class="form-group d-flex">
-                        <input type="text" class="form-control m-1" placeholder="Add Comments">
-                        <button class="btn btn-primary">Comment</button>
+                    <div class="form-group">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button class="btn btn-primary">Comment</button>
+                        </form>
                     </div>
                 </div> <br>
 
