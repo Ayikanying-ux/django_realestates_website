@@ -4,9 +4,11 @@ from core.models import Agent, Comment, House
 
 # Register your models here.
 
-@admin.register(House)
-class HouseAdmin(admin.ModelAdmin):
-    list_display=('name', 'description', 'price')
+#@admin.register(House)
+#class HouseAdmin(admin.ModelAdmin):
+#    list_display=('name', 'description', 'price',)
+
+admin.site.register(House)
 
 @admin.register(Agent)
 class AgentAdmin(admin.ModelAdmin):

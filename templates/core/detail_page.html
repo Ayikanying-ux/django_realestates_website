@@ -10,23 +10,27 @@
 
         <div class="container mt-3 mb-5">
                 <div class="card">
-                <img src="{{ estates.image.url }}" alt="" class="img-card-top">   
-                <div class="card-body">
-                    <span class="card-icons"><i class="far fa-heart"></i></span>
-                    <span class="card-icons"><i class="far fa-thumbs-down"></i></span>
-                    <span class="card-icons"><i class="far fa-comment"></i></span><br><br>
-                    <a href="" class="card-link btn btn-secondary">BUY</a>
-                    <span class="alert-danger">${{ estates.price }}</span>
+                    <img src="{{ estates.image.url }}" alt="" class="img-card-top">   
+                    <div class="card-body">
+                        <form action="{% url 'like_estate' estates.id %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="next" value="{{ request.path}}">
+                            <button type='submit' class="btn btn-default"><i class="far fa-heart"></i></button>
+                            <button class="btn btn-default"><i class="far fa-thumbs-down"></i></button>
+                            <button class="btn btn-default"><i class="far fa-comment"></i></button><br>
+                        </form>
+                        <a href="" class="card-link btn btn-secondary">BUY</a>
+                        <span class="alert-danger">${{ estates.price }}</span>
+                    </div>
+                </div> <br>
+                <div class="title">
+                    <h2>{{ estates.name }}</h2>
                 </div>
-            </div> <br>
-            <div class="title">
-                <h2>{{ estates.name }}</h2>
-            </div>
-            <div class="ml-5 description">   
-                <p>
-                    {{ estates.description }}
-                </p>
-            </div>
+                <div class="ml-5 description">   
+                    <p>
+                        {{ estates.description }}
+                    </p>
+                </div>
         </div>
 
         <div class="comment-section">  
