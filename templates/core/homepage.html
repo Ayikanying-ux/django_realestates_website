@@ -4,8 +4,11 @@
     {% block body %}
         <div class="container">
             <div class="form-group d-flex">
-                <input type="text" class="form-control m-1" placeholder="Search for available house">
-                <button class="btn btn-primary">Search</button>
+                <form action="{% url 'search' %}" method="GET">
+                    {% csrf_token %}
+                    <input type="text" name='query' class="form-control m-1" placeholder="Search for available house">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
             </div>
         </div>
 

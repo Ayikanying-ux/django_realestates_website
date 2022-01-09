@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+    {% block body %}
+        <div class="search-section">
+            <div class="container">
+                <div class="search">
+                    <div class="row justify-conten-center mt-2">
+                        {% for house in house %}
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="card m-3" style="width: 100%">
+                                <img src="{{ house.image.url }}" alt="" class="img-card-top">
+                                <div class="card-body">
+                                    <h2 class="card-title">{{ house.name }}</h2>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>  
+    {% endblock %}
