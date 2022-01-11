@@ -106,7 +106,7 @@ class Search(View):
             Q(name__icontains=query)
         )
         context = {"house": house}
-
+            
         return render(request, 'core/search.html', context)
 
 
