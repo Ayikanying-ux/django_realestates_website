@@ -9,7 +9,7 @@
                             <div class="card m-3" style="width: 100%">
                                 <img src="{{ house.image.url }}" alt="" class="img-card-top">
                                 <div class="card-body">
-                                    <h2 class="card-title">{{ house.name }}</h2>
+                                    <a href="{% url 'detail' house.pk %}"><h2 class="card-title">{{ house.name }}</h2></a>
                                 </div>
                             </div>
                         </div>

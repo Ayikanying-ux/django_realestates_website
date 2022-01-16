@@ -4,10 +4,17 @@
     </div>
     <div class="nav-bar">
         <ul>
-            <li><a href="{% url 'homepage' %}">Home</a></li>
-            <li><a href="">Login</a></li>
-            <li><a href="{% url 'register' %}">SignUp</a></li>
-            <li><a href="">Estates</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'homepage' %}">Home</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                <li><a href="">Estates</a></li>
+                logged In as {{ user }}
+            {% else %}
+                <li><a href="{% url 'homepage' %}">Home</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">SignUp</a></li>
+                <li><a href="">Estates</a></li>
+            {% endif %}
         </ul>
     </div>
 </div>  

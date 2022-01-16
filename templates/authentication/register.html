@@ -2,14 +2,23 @@
     {% block body %}
         {% load crispy_forms_tags %}
             <div class="container">
+                <div class="header"><br>   
+                    <h1 class="text-center">Register....</h1>
+                </div>
                 <div class="register">
                     <div class="form-group d-flex justify-content-center">
                         <form action="" method="POST">
                             {% csrf_token %}
-                            {{ form|crispy }}
+                            {{ form.username | as_crispy_field }}
+
+                            {{ form.email| as_crispy_field }}
+
+                            {{ form.password1 | as_crispy_field }}
+
+                            {{ form.password2 | as_crispy_field }}
                             <button class="btn btn-primary">Register</button>
                         </form>
                     </div>
-                </div>
+                </div><br><br>
             </div>
     {% endblock %}
