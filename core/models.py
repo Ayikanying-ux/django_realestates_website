@@ -39,8 +39,8 @@ class House(models.Model):
     number_of_bedrooms = models.IntegerField(default=0)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     agent = models.ForeignKey("Agent", on_delete=models.CASCADE)
-    likes = models.ManyToManyField(User, related_name="house")
-    dislikes = models.ManyToManyField(User, related_name="dislikes")
+    likes = models.ManyToManyField(User, related_name="house", blank=True)
+    dislikes = models.ManyToManyField(User, related_name="dislikes", blank=True)
 
     def __str__(self) -> str:
         return f'{self.name} house'
