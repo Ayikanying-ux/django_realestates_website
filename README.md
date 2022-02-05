@@ -1,1 +1,1 @@
-# <h1 style="text-center">REAL ESTATE</h1>
+# <h1 align="center">REAL ESTATE</h1>
